@@ -1,0 +1,98 @@
+import { Link, useLocation } from "react-router-dom";
+import { publicRoutes, privateRoutes } from "./navigation";
+import { Container } from "../ui";
+import { useAuth } from "../../context/AuthContext";
+import { twMerge } from "tailwind-merge";
+import { MdLogout } from "react-icons/md";
+import { LuUserPen } from "react-icons/lu";
+
+function Navbar() {
+  const location = useLocation();
+  const { isAuth, signout, user } = useAuth();
+
+  if (location.pathname === "/") {
+    return null; 
+  }
+
+
+if ( location.pathname !== "/") {
+  return null;
+}
+
+  return ( 
+    // bg-gradient-to-r from-white/85 to-blue-900/85
+    <nav className=" bg-gradient-to-r from-[#e5eff5] to-blue-700/50 shadow-md border-b-1 border-[#006699]"> 
+      <Container className="flex justify-between py-3">
+        <div className="flex-1 min-w-0 ml-4 sm:ml-10">
+          <div className="flex items-center">
+            <Link to="./" className="flex items-center ">
+              <img src="/assets/logo-temscon.png" alt="TEMSCon Logo" className="h-10 sm:h-12 w-auto max-w-[120px] sm:max-w-none object-contain" />
+            </Link>
+            {/* <Link to="https://www.ieee.org/" className="hidden lg:block shrink-0 ">
+              <img src="/assets/logo-ieee.svg" alt="IEEE Logo" className="h-8 w-auto object-contain" />
+            </Link> */}
+          </div>
+        </div>
+        <div className="flex items-center justify-center md:gap-x-1 mx-10">
+          <ul className="flex items-center justify-center gap-x-1 sm:gap-x-3 text-xs sm:text-sm">
+            {isAuth ? (
+              <>
+                {privateRoutes.map(({ path, name, icon }) => (
+                  <li key={path}>
+                    <Link
+                      to={path}
+                      className={twMerge(
+                        "text-slate-300 flex items-center py-1 transition-all rounded-md duration-150 hover:brightness-125",
+                        location.pathname === path && ""
+                      )}
+                    >
+                      {icon}
+                      <span className="font-medium text-white hidden sm:block">{name}</span>
+                    </Link>
+                  </li>
+                ))}
+
+                <li
+                  className="bg-[#7c91ba] text-white flex items-center px-3 py-1 gap-x-1 rounded-md hover:cursor-pointer mx-2 transition-all duration-150 hover:brightness-125 hover:text-[#ffff] hover:bg-[#8498be]"
+                  onClick={() => {
+                    signout();
+                  }}
+                >
+                  <MdLogout className="w-5 h-5" />
+                  <span className="hidden sm:block">Salir</span>
+                </li>
+
+                <li className="flex gap-x-1 items-center justify-center text-[#ffffff]">
+                  <LuUserPen className="w-5 h-5 sm:inline" />
+                  <span className="font-black">{user.name}</span>
+                </li>
+              </>
+            ) : (
+              publicRoutes.map(({ path, name }) => (
+                <li
+                className={twMerge(
+                  "text-[#4067a5] flex items-center px-3 py-2 font-semibold  rounded-md transition-colors duration-150  hover:bg-[#5c75a8] bg-[#ffff] shadow-sm hover:shadow-md hover:text-[#ffff]",
+                  location.pathname === path && "bg-[#c01f12] text-[#fff] "
+                )}
+                  key={path}
+                >
+                  <Link to={path}>
+            <span className="hidden sm:inline">
+              {name} 
+            </span>
+            {name === "Sobre nosotros" && <span className="sm:hidden">Tems</span>}
+            {name === "Iniciar sesión" && <span className="sm:hidden">Ingresa</span>}
+            {name === "Registrarse" && <span className="sm:hidden">Registro</span>}
+          </Link>
+                </li>
+              ))
+            )}
+          </ul>
+        </div>
+      
+      </Container>
+    </nav>
+  );
+}
+
+export default Navbar;

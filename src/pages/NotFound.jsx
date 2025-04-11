@@ -1,0 +1,40 @@
+import { Link } from "react-router-dom";
+import { useEffect } from "react";
+
+// import { useEffect } from "react";
+
+function NotFound() {
+  // useEffect(() => {
+  //   document.body.classList.add("not-page");
+
+  //   return () => {
+  //     document.body.classList.remove("not-page");
+  //   };
+  // }, []);
+
+  useEffect(() => {
+    document.body.style.overflow = "hidden"; // Oculta scroll
+
+    return () => {
+      document.body.style.overflow = "auto"; // Lo restaura al desmontar
+    };
+  }, []);
+
+  return (
+    <div className="w-screen h-screen flex items-center justify-center lg:mt-4 md:mt-4 sm:mt-2 mt-4">
+  <div className="bg-gradient-to-r from-[#66994a]/70 to-[#29478c]/90 bg-opacity-85 w-full max-w-[450px] h-auto p-8 rounded-2xl shadow-2xl flex flex-col items-center justify-center text-center mb-16">
+    <h1 className="text-5xl font-extrabold text-white mb-4">Página no encontrada</h1>
+    <h3 className="text-3xl text-white mb-4 font-bold">Error 404</h3>
+    <p className="text-white text-lg mb-6 font-medium">Para volver al inicio, presiona el botón:</p>
+    <Link
+      to="/"
+      className="bg-[#ffffff] hover:bg-[#5c75a8] text-[#4067a5] px-4 py-2 rounded font-semibold hover:text-[#fff] tracking-wide duration-300 shadow-md hover:shadow-lg"
+    >
+      Inicio
+    </Link>
+  </div>
+</div>
+  );
+}
+
+export default NotFound;

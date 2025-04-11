@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply font-sans;
+  background-image: url('/assets/fondo-ctg.jpg');
+  background-size: cover;
+  background-position: center;
+  /*background: #101010;*/
+  color: white;
+}
+
+
+.admin-page { 
+  background: #e8edf6	;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
+
+.redirect-page {
+  background-image: url('/assets/fondo-ctg.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 1s ease-out forwards;
+}
+
+/*
+.home-page { 
+  background-image: url('/assets/fondo-barranquilla2.jpeg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
+
+.login-page { 
+  background-image: url('/assets/fondo-barranquilla2.jpeg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
+
+.register-page { 
+  background-image: url('/assets/fondo-barranquilla2.jpeg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  
+}
+
+.about-page { 
+  background-image: url('/assets/fondo-barranquilla2.jpeg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  height: 100%;
+}
+
+.not-page { 
+  background-image: url('/assets/fondo-barranquilla2.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+.profile-page { 
+  background-image: url('/assets/fondo-barranquilla2.jpeg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  height: 100%;
+}
+
+.forgot-page { 
+  background-image: url('/assets/fondo-barranquilla2.jpeg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  height: 100%;
+}
+
+.change-page { 
+  background-image: url('/assets/fondo-barranquilla2.jpeg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  
+}
+  */
