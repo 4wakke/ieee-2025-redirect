@@ -1,12 +1,12 @@
-import { useEffect } from "react";
+// import { useEffect } from "react";
 
 function RedirectPage() {
-  useEffect(() => {
-    document.body.classList.add("redirect-page");
-    return () => {
-      document.body.classList.remove("redirect-page");
-    };
-  }, []);
+  // useEffect(() => {
+  //   document.body.classList.add("redirect-page");
+  //   return () => {
+  //     document.body.classList.remove("redirect-page");
+  //   };
+  // }, []);
 
   // bg-[#f4f9fc]/70
 
@@ -33,7 +33,7 @@ function RedirectPage() {
         </h1>
 
         <p className="text-white text-lg sm:text-xl mb-8">
-        Para acceder al registro de las conferencias, seleccione una de las opciones a continuación:
+        Para acceder al registro de una conferencia, seleccione una de las opciones a continuación:
         </p>
 
         <div className="flex flex-col sm:flex-row gap-6 justify-center"> 

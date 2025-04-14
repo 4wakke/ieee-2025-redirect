@@ -7,6 +7,8 @@ body {
   background-image: url('/assets/fondo-ctg.jpg');
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   /*background: #101010;*/
   color: white;
 }
@@ -16,15 +18,17 @@ body {
   background: #e8edf6	;
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   height: 100vh;
 }
 
-.redirect-page {
+/* .redirect-page {
   background-image: url('/assets/fondo-ctg.jpg');
   background-size: cover;
   background-position: center;
   height: 100vh;
-}
+} */
 
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(20px); }
